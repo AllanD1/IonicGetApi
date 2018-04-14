@@ -9,9 +9,8 @@ import { Http } from '@angular/http';
 */
 @Injectable()
 export class ListaProvider {
-  url = "https://raw.githubusercontent.com/munifgebara/reactnative/master/lista/lista.json"
+  url = "https://jsonplaceholder.typicode.com/posts/"
   constructor(public http: Http) {
-    console.log('Hello ListaProvider Provider');
   }
   buscaLista(){
     return this.http.get(this.url);

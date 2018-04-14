@@ -9,7 +9,7 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
  lista = []
   constructor(public navCtrl: NavController, private listaProvider:ListaProvider) {
-
+    this.getlista()
   }
 
   getlista(){
