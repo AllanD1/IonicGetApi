@@ -1,3 +1,4 @@
+import { ListaProvider } from './../../providers/lista/lista';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -6,9 +7,19 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
+ lista = []
+  constructor(public navCtrl: NavController, private listaProvider:ListaProvider) {
 
   }
 
+  getlista(){
+    this.listaProvider.buscaLista().subscribe(res =>
+      { 
+       this.lista= JSON.parse(res['_body'])
+      } 
+    )
+  }
+  excluir(index){
+    this.lista.splice(index,1)
+  }
 }
